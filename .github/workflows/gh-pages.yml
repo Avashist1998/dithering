@@ -6,7 +6,9 @@ on:
       - main
     paths:
       - 'web-app/**'
-
+  workflow_dispatch:
+    branches:
+      - main
 jobs:
   build:
     name: Build
