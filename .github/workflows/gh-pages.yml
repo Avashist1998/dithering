@@ -6,9 +6,7 @@ on:
       - main
     paths:
       - 'web-app/**'
-  workflow_dispatch:
-    branches:
-      - main
+  workflow_dispatch: 
 jobs:
   build:
     name: Build
@@ -18,10 +16,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: webpack step
+      - uses: jetli/wasm-pack-action@v0.4.0
+        with:
+          version: 'latest'
+
       - name: Cargo Build
         working-directory: ./web-app
-        uses: rust-build/rust-build.action@v1.4.5
-
+        run: wasm-pack build --target web
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
