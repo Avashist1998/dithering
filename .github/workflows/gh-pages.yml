@@ -25,11 +25,18 @@ jobs:
         working-directory: ./web-app
         run: wasm-pack build --target web
 
+      - name: Copy static files
+        working-directory: ./web-app
+        run: |
+          cp index.html ./pkg
+          cp style.css ./pkg
+          cp index.js ./pkg
+
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: ./web-app/dist
+          path: ./web-app/pkg
 
   deploy:
     name: Deploy
@@ -42,7 +49,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: ./dist
+          path: ./pkg
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
