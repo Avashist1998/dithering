@@ -18,12 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install stable toolchain
-        uses: actions-rs/toolchain@v1
-
       - name: Cargo Build
         working-directory: ./web-app
-        run: cargo build
+        uses: rust-build/rust-build.action@v1.4.5
 
 
       - name: Upload production-ready build files
