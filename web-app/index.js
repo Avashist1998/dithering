@@ -1,7 +1,22 @@
 import init, { black_and_white, floyd_steinberg_dithering, atkinson_dithering } from './pkg/web_app.js';
 
 
+const loadingSpinner = document.getElementById('loading-spinner');
+const main = document.getElementById("main");
+function showLoading() {
+    loadingSpinner.classList.remove('hidden');
+    main.classList.add('hidden');
+}
+
+function hideLoading() {
+  loadingSpinner.classList.add('hidden');
+  main.classList.remove('hidden');
+}
+
 document.getElementById('upload').addEventListener('change', async (event) => {
+
+    showLoading();
+
     const file = event.target.files[0];
     const reader = new FileReader();
 
@@ -58,6 +73,8 @@ document.getElementById('upload').addEventListener('change', async (event) => {
             elements.forEach(element => {
                 element.style.visibility = "visible";
             })
+
+            hideLoading();
         };
     };
 

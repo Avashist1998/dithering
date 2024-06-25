@@ -7,36 +7,41 @@
     <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
-    <h1>Exploring Image Dithering Techniques</h1>
-
-    <label class="file-upload">
-        <input type="file" id="upload" accept="image/*">
-        Upload Image Here
-    </label>
-
-    <div class="image-matrix">
-        <div class="row">
-            <div class="canvas-container">
-                <h2>Input Image</h2>
-                <canvas id="input-canvas"></canvas>
+    <div id="main" class="main">        
+        <h1>Exploring Image Dithering Techniques</h1>
+    
+        <label class="file-upload">
+            <input type="file" id="upload" accept="image/*">
+            Upload Image Here
+        </label>
+    
+        <div class="image-matrix">
+            <div class="row">
+                <div class="canvas-container">
+                    <h2>Input Image</h2>
+                    <canvas id="input-canvas"></canvas>
+                </div>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="canvas-container">
-                <h2>Black and White</h2>
-                <canvas id="b-w-canvas"></canvas>
-            </div>
-            <div class="canvas-container">
-                <h2>Floyd-Steinberg</h2>
-                <canvas id="f-s-canvas"></canvas>
-            </div>
-            <div class="canvas-container">
-                <h2>Atkinson</h2>
-                <canvas id="a-canvas"></canvas>
+            
+            <div class="row">
+                <div class="canvas-container">
+                    <h2>Black and White</h2>
+                    <canvas id="b-w-canvas"></canvas>
+                </div>
+                <div class="canvas-container">
+                    <h2>Floyd-Steinberg</h2>
+                    <canvas id="f-s-canvas"></canvas>
+                </div>
+                <div class="canvas-container">
+                    <h2>Atkinson</h2>
+                    <canvas id="a-canvas"></canvas>
+                </div>
             </div>
         </div>
     </div>
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+      </div>
 
     <script type="module" src="index.js"></script>
 </body>

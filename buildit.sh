@@ -18,7 +18,7 @@ git add .
 git stash
 git checkout gh-pages -f
 git stash pop
+git rm web-app
 git add .
 git commit -m "feat: Deployment"
 git push -f
-git checkout main
